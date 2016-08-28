@@ -73,10 +73,11 @@ class NewsTicker(QtGui.QMainWindow):
             prediction_list.append(string)
 
         predicted_score = np.mean(prediction == self.twenty_news.target)
+        f1score = metrics.f1_score(self.twenty_news.target,prediction,average="weighted")
 
         #save data into the database
         db_handler = DBHandler()
-        db_handler.insertData(headline,theme_list,prediction_list,predicted_score)
+        db_handler.insertData(headline,theme_list,prediction_list,predicted_score,f1score)
         #update ui
         self.updateUi()
 
@@ -105,7 +106,8 @@ class NewsTicker(QtGui.QMainWindow):
                 prediction_browser.append(prediction_browser.toPlainText() + prediction + "\n")
 
             score = QtGui.QLabel("Score: " + row["analysis"])
-
+            
+            f1 = QtGui.QLabel("F1-Score: "+ row["f1"])
             #set new layout
             self.layout.addWidget(label)
             self.layout.addWidget(themes)
