@@ -17,7 +17,7 @@ class NewsTicker(QtGui.QMainWindow):
         uic.loadUi("gui.ui")
         #init dataset and vecotirzer and train with naive bayes
         self.twenty_news = fetch_20newsgroups(subset="train",remove=('headers', 'footers', 'quotes'))
-        self.vectorizer = vectorizer = TfidfVectorizer(max_df=0.95,min_df=2, stop_words="english")
+        self.vectorizer =  TfidfVectorizer(max_df=0.95,min_df=2, stop_words="english")
         self.twenty_train_data = self.vectorizer.fit_transform(self.twenty_news.data)
         self.naive_bayes = MultinomialNB(alpha=0.2)
         self.naive_bayes.fit(self.twenty_train_data,self.twenty_news.target)
