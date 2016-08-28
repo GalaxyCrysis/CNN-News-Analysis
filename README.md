@@ -1,5 +1,5 @@
-# Cnn_News_analyzing
-Analyze and compare articles from CNN with 20newsgroup dataset
+# CNN News Analysis
+Analyze and compare articles from CNN Politics with 20newsgroup dataset
 
 We get the articles from CNN Politcis via Beautifoul soup webcrwaling.
 After that we analyze the articles via tfidf Vectorizer and predict them with Naive bayes classifier.
