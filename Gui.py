@@ -115,6 +115,7 @@ class NewsTicker(QtGui.QMainWindow):
             self.layout.addWidget(predictions)
             self.layout.addWidget(prediction_browser)
             self.layout.addWidget(score)
+            self.layout.addWidget(f1)
             self.widget.setLayout(self.layout)
             self.scrollArea.setWidget(self.widget)
 
