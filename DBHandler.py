@@ -13,7 +13,7 @@ class DBHandler:
     """
     get the analysis from each text and save insert it into the database
     """
-    def insertData(self,headline,theme_list, prediction_list, analysis):
+    def insertData(self,headline,theme_list, prediction_list, analysis,f1):
         try:
             client = MongoClient(self.host, self.port)
             db = client[self.database]
@@ -22,7 +22,8 @@ class DBHandler:
                     "headline": headline,
                     "theme list": theme_list,
                     "prediction list": prediction_list,
-                    "analysis": analysis
+                    "analysis": analysis,
+                    "f1": f1
                 }
             )
             client.close()
