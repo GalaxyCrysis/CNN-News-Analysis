@@ -15,7 +15,7 @@ def getUrl(html):
                 return tag.get("href")
 
 """
-get Text function: We search for headline and  the main article div and then for all divs with the the plain text and add it to the text string.
+get Text function: We search for headline and  the main article div and then for all divs within the tag with plain text and add it to the text string.
 Finally return the text strings for text analyzing
 """
 def getText(html):
